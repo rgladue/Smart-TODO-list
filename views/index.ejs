@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Smart ToDo List</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -14,7 +14,37 @@
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <nav class="navbar">
+    <p>Hello, User Name!</p>
+    <h1 id="title">SmartList</h1>
+    <p>Login</p>
+  </nav>
+  <!--new todo list submission form-->
+  <form class= input-form method="POST" action="/">
+    <p>New To-Do:</p>
+    <br>
+    <input type="text" class="text-field">
+    <br>
+    <input type="submit" id="add-btn" value="Add">
+  </form>
+  <!--main content with listing categories-->
+  <div class="list-container">
+    <div class="movie-container">
+      <p>MOVIES</p>
+    </div>
+    <div class="book-container">
+      <p>BOOKS</p>
+    </div>
+    <div class="food-container">
+      <p>FOOD</p>
+    </div>
+    <div class="shop-container">
+      <p>SHOP</p>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>links</p>
+  </footer>
 </body>
 
 </html>

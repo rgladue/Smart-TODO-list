@@ -12,3 +12,4 @@ VALUES ('movies'),
 ('shopping');
 
 INSERT INTO tasks (name, description,)
+VALUES ()

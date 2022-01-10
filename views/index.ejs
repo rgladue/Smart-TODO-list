@@ -14,10 +14,20 @@
 </head>
 
 <body>
-  <div class=""></div>
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+<!--navbar-->
   <nav class="navbar">
     
-    <p> Welcome!</p>
+    <p style="color: rgb(77, 77, 77); width: 140px;"><i class="fa-solid fa-user"></i> Welcome!</p>
     <h1 id="title">SmartListr</h1>
     <span>
       <button type="button" class="navbar-login">Login</button>
@@ -25,7 +35,7 @@
     </span>
   </nav>
   <!--new todo list submission form-->
-  <form class= input-form method="POST" action="/">
+  <form class="input-form" method="POST" action="/">
     <p>New To-Do:</p>
     <br>
     <input type="text" class="text-field">
@@ -36,7 +46,9 @@
   <div class="list-container">
     <div class="movie-container">
       <h6>MOVIES</h6>
-      <ul id="movies"></ul>
+      <ul id="movies">
+        
+      </ul>
     </div>
     <div class="book-container">
       <h6>BOOKS</h6>
@@ -51,8 +63,11 @@
       <ul id="shop"></ul>
     </div>
   </div>
+  <!--footer content -->
   <footer class="footer">
-    <p>links</p>
+    <p>T.Dihn <i class="fa-brands fa-github"></i></p>
+    <p id="copyright">made by humans &copy;2022</p>
+    <p>R.Gladue <i class="fa-brands fa-github" id="robs-git"></i> <i class="fa-brands fa-twitter" id="robs-twit"></i></p>
   </footer>
 </body>
 

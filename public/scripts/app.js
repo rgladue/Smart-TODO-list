@@ -1,6 +1,17 @@
 // Client facing scripts here
 $(document).ready(() => {
 
+  //Populate lists from DB using AJAX requests
+  $.ajax({
+    url: 'http://localhost:3000',
+    method: 'GET',
+    dataType: 'json',
+    success: function(listings) {
+
+    }
+  })
+
+
   $(".navbar-register").on("click",() => {
   location.href = "/register";
   })
@@ -18,28 +29,57 @@ $(document).ready(() => {
 
     const $listItem = $(".text-field").val();
 
+
+
     
       
 
     if($listItem.includes("watch")) {
-      $movieList.append(`<li class="list-item">${$listItem}</li><br>`);
+      $movieList.append(`<li>${$listItem}</li><br>`);
     }
     if($listItem.includes("read")) {
-      $bookList.append(`<li class="list-item">${$listItem}</li><br>`);
+      $bookList.append(`<li>${$listItem}</li><br>`);
     }
     if ($listItem.includes("eat")) {
-        $foodList.append(`<li class="list-item">${$listItem}</li><br>`);
+        $foodList.append(`<li>${$listItem}</li><br>`);
     }
     if ($listItem.includes("buy")) {
-        $shopList.append(`<li class="list-item">${$listItem}</li><br>`);
+        $shopList.append(`<li>${$listItem}</li><br>`);
     }
     $(".text-field").val("");
       
   });
 
-  $(".list-item").on("click", () => {
-    
+  
+  //footer element redirect links
+  $("#robs-git").on("click", () => {
+    location.href = "https://github.com/rgladue";
+  })
+
+  $("#robs-twit").on("click", () =>{
+    location.href = "https://twitter.com/RGAlexJR";
+  })
+
+  
+  
+  //modal popup/close functions
+  const modal = document.getElementById("myModal");
+
+  
+  $("ul").on("click", () => {
+    modal.style.display = "block";
   });
+  
+  $(".close").on("click", () => {
+    modal.style.display = "none";
+  });
+  
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
 
 
 

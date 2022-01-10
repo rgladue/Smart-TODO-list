@@ -28,10 +28,27 @@ body {
   padding: 10px;
 }
 
+.navbar-login {
+  color: rgb(63, 63, 63);
+  background: white;
+  padding: 5px;
+  border: 2px solid coral;
+  border-radius: 3px;
+}
+
+.navbar-register {
+  background: white;
+  padding: 5px;
+  border: 2px solid coral;
+  border-radius: 3px;
+}
+
 #title {
   font-family: 'Wire One', sans-serif;
   font-size: 80px;
-  
+  align-self: center;
+  justify-self: center;
+  position: relative;
 }
 
 .input-form {

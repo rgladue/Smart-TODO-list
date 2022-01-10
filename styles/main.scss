@@ -1,5 +1,6 @@
 $black-transparent: rgba(0, 0, 0, 0.3);
-$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$categoryColor: rgb(216, 197, 133);
 
 body {
   display: flex;
@@ -10,7 +11,7 @@ body {
 
   background: rgb(163, 208, 219);
   background: linear-gradient(
-    227deg,
+    150deg,
     rgb(233, 151, 240) 0%,
     rgb(215, 195, 131) 20%,
     rgb(238, 196, 127) 34%,
@@ -86,38 +87,67 @@ body {
   height: 700px;
   display: flex;
   justify-content: space-around;
+  .book-container:hover {
+    border: 1px solid black;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .movie-container:hover {
+    border: 1px solid black;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .food-container:hover {
+    border: 1px solid black;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .shop-container:hover {
+    border: 1px solid black;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .movie-container {
-  background-color:azure;
+  background-color:$categoryColor;
   width: 20%;
   height: 65%;
   border-radius:5px;
   box-shadow: $shadow;
+  padding: 10px;
 }
 
 .book-container {
-  background-color:azure;
+  background-color:$categoryColor;
   width: 20%;
   height: 65%;
   border-radius: 5px;
   box-shadow: $shadow;
+  padding: 10px;
 }
 
 .food-container {
-  background-color:azure;
+  background-color:$categoryColor;
   width: 20%;
   height: 65%;
   border-radius: 5px;
   box-shadow: $shadow;
+  padding: 10px;
 }
 
 .shop-container {
-  background-color:azure;
+  background-color:$categoryColor;
   width: 20%;
   height: 65%;
   border-radius: 5px;
   box-shadow: $shadow;
+  padding: 10px;
+}
+
+.list-item {
+  color: rgb(82, 81, 81);
+}
+
+.list-item:hover {
+  text-decoration:underline;
+  cursor: pointer;
 }
 
 .footer {

@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  res.render("index");
+  res.JSON.parse(data);
 })
 
 app.get("/login", (req, res) => {

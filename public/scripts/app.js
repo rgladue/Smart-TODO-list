@@ -38,7 +38,9 @@ $(document).ready(() => {
       
 
     if($listItem.includes("watch")) {
-      $movieList.append(`<li class="list-item">${$listItem}</li><br>`);
+      $movieList.append(`<li class="list-item">${$listItem}</li><form method="GET" action="/<%= listItem %>/edit">
+      <input type="submit" value="Edit">
+    </form><br>`);
     }
     if($listItem.includes("read")) {
       $bookList.append(`<li class="list-item">${$listItem}</li><br>`);
@@ -55,16 +57,7 @@ $(document).ready(() => {
   });
   
   
-  $(".list-item").draggable({
-    revert: true
-  });
-
-  $("#movies").droppable({
-    accept: '.list-item',
-    drop: function(event, ui) {
-      $(this).append($(ui.draggable));
-    }
-  });
+  
   
 
 
@@ -87,16 +80,22 @@ $(document).ready(() => {
   const modal = document.getElementById("myModal");
 
   
-  $("ul").on("click", () => {
+  $("ul").on("click", (event) => {
     modal.style.display = "block";
+    const targetText = event.target.innerHTML;
+
+    $(".modal-content").append(`<p>Holy cow Batman!</p>`)
+    
   });
   
   $(".close").on("click", () => {
+    $(".modal-content").empty("")
     modal.style.display = "none";
   });
   
   window.onclick = (event) => {
     if (event.target == modal) {
+      $(".modal-content").empty("")
       modal.style.display = "none";
     }
   }

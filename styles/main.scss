@@ -145,11 +145,11 @@ body {
   padding: 10px;
 }
 
-li {
+.list-item {
   color: rgb(82, 81, 81);
 }
 
-li:hover {
+.list-item:hover {
   text-decoration:underline;
   cursor: pointer;
 }

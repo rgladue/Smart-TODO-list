@@ -20,38 +20,59 @@ $(document).ready(() => {
     location.href = "/login";
   })
 
+  
+  //Adding list items from the input field
   $(".input-form").on("submit",(event) => {
     event.preventDefault();
     const $movieList = $("#movies");
     const $bookList = $("#books");
     const $foodList = $("#food");
     const $shopList = $("#shop");
-
+    
     const $listItem = $(".text-field").val();
-
-
-
+    
+    
+    
+    
     
       
 
     if($listItem.includes("watch")) {
-      $movieList.append(`<li>${$listItem}</li><br>`);
+      $movieList.append(`<li class="list-item">${$listItem}</li><br>`);
     }
     if($listItem.includes("read")) {
-      $bookList.append(`<li>${$listItem}</li><br>`);
+      $bookList.append(`<li class="list-item">${$listItem}</li><br>`);
     }
     if ($listItem.includes("eat")) {
-        $foodList.append(`<li>${$listItem}</li><br>`);
+        $foodList.append(`<li class="list-item">${$listItem}</li><br>`);
     }
     if ($listItem.includes("buy")) {
-        $shopList.append(`<li>${$listItem}</li><br>`);
+        $shopList.append(`<li class="list-item">${$listItem}</li><br>`);
     }
     $(".text-field").val("");
       
+    
+  });
+  
+  
+  $(".list-item").draggable({
+    revert: true
   });
 
+  $("#movies").droppable({
+    accept: '.list-item',
+    drop: function(event, ui) {
+      $(this).append($(ui.draggable));
+    }
+  });
   
+
+
   //footer element redirect links
+  $("#tiens-git").on("click", function() {
+    location.href = "https://github.com/quangtienftu49";
+  })
+
   $("#robs-git").on("click", () => {
     location.href = "https://github.com/rgladue";
   })
@@ -79,6 +100,7 @@ $(document).ready(() => {
       modal.style.display = "none";
     }
   }
+
 
 
 

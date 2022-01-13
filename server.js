@@ -66,28 +66,50 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+  if(!req.session.user_id) {
+    res.render("index_logged_out");
+  }
   
-  res.render("index");
+  db.query(`SELECT name, description FROM users
+  JOIN tasks ON users.id = user_id`)
+    .then(data => {
+
+      const temp = {listings: data.rows, user: data.rows[7].name};
+      
+      res.render("index", temp);
+    })
+    .catch(err => {
+      res
+      .status(500)
+      .json({ error: err.message });
+    });
 });
 
-app.post("/", (req, res) => {
-  console.log(res.JSON.parse(data));
-})
-
+//--------------
 app.get("/login", (req, res) => {
+  if(req.session.user_id) {
+    res.redirect("/");
+  }
   res.render("login");
 });
-
+//--------------
 app.post('/login', (req, res) => {
-  console.log(res.body);
-  res.redirect("/");
+ const email = req.body.email;
+ db.query(`SELECT * FROM users WHERE email = $1`, [email])
+ .then(data => {
+    req.session.user_id = data.rows[0].id;
+    console.log(data.rows[0].name);
+    res.redirect("/");
+ })
 });
-
+//---------------
 app.get("/register", (req, res) => {
-  
+  if(req.session.user_id) {
+    res.redirect("/");
+  }
   res.render("register");
 });
-
+//---------------
 app.post("/register", (req, res) => {
 
   const user = {
@@ -100,11 +122,14 @@ app.post("/register", (req, res) => {
   VALUES ('${user.name}', '${user.email}', '${user.password}')
   `)
   .then(data => {
-    console.log(data);
+    res.redirect("/");
   })
-  
-  res.redirect("/");
 })
+//--------------
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 
 
 
@@ -115,4 +140,6 @@ app.post("/register", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
 

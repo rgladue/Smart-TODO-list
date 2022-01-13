@@ -6,17 +6,17 @@ VALUES ('Alice', 'alice.in@chains.com', 'cooper'),
 ('Geralt of Rivia', 'geralt@witcher.com', 'yennefer');
 
 
-INSERT INTO tasks (user_id, description)
-VALUES (1, 'I want to eat toast'),
-(1, 'I want to watch The Hobbit'),
-(1, ' I want to watch Spider Man'),
-(1, 'I want to buy a cow'), 
-(2, 'I want to read The Silmarillion'), 
-(2, 'I want to eat a horse'),
-(2, 'I want to buy a 1964 Ford Mustang'),
-(3, 'I want to drink a martini'), 
-(3, 'I want to buy a new gun'), 
-(3, 'I want to read People Magazine'),
-(4, 'I want watch Yennefer sleep'),
-(4, 'I want to eat venison'), 
-(4, 'I want to buy a new sword');
+INSERT INTO tasks (user_id, description, category)
+VALUES (1, 'I want to eat burgers', 'food'),
+(1, 'I want to watch The Hobbit', 'movies'),
+(1, 'I want to watch The Simpsons', 'movies'),
+(1, 'I want to buy a cow', 'shopping'), 
+(2, 'I want to read The Hobbit', 'books'), 
+(2, 'I want to eat pizza', 'food'),
+(2, 'I want to buy a 1964 Ford Mustang', 'shopping'),
+(3, 'I want to drink a martini', 'food'), 
+(3, 'I want to buy a new gun', 'shopping'), 
+(3, 'I want to read The Witcher', 'books'),
+(4, 'I want to watch The Witcher', 'movies'),
+(4, 'I want to eat steak', 'food'), 
+(4, 'I want to buy a new sword', 'shopping');

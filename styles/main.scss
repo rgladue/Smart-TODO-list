@@ -113,46 +113,59 @@ body {
   background-color:$categoryColor;
   width: 20%;
   height: 65%;
-  border-radius:5px;
+  border-radius:10px;
   box-shadow: $shadow;
-  padding: 10px;
+  padding-right: 10px;
 }
 
 .book-container {
   background-color:$categoryColor;
   width: 20%;
   height: 65%;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: $shadow;
-  padding: 10px;
+  padding-right: 10px;
 }
 
 .food-container {
   background-color:$categoryColor;
   width: 20%;
   height: 65%;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: $shadow;
-  padding: 10px;
+  padding-right: 10px;
 }
 
 .shop-container {
   background-color:$categoryColor;
   width: 20%;
   height: 65%;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: $shadow;
-  padding: 10px;
+  padding-right: 10px;
 }
 
 .list-item {
   color: rgb(82, 81, 81);
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  i {
+    display:none;
+  }
 }
 
 .list-item:hover {
-  text-decoration:underline;
+  color: #000000;
+  text-shadow: 0 0 0 #969696, 1px 5px 5px #aba8a8;
   cursor: pointer;
+  i {
+    color:rgb(170, 0, 0);
+    display:block;
+    font-size: 12px;
+  }
 }
+
 
 .footer {
   background-color: rgb(0, 0, 0, 0.3);

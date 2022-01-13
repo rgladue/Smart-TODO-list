@@ -48,7 +48,7 @@
   <!--main content with listing categories-->
   <div class="list-container">
     <div class="movie-container">
-      <h6>MOVIES</h6>
+      <h6>----MOVIES----</h6>
       <ul id="movies">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('watch')) { %>
@@ -61,7 +61,7 @@
       </ul>
     </div>
     <div class="book-container">
-      <h6>BOOKS</h6>
+      <h6>----BOOKS----</h6>
       <ul id="books">
         <% for(let i = 0; i < listings.length; i++) { %>
         <% if(listings[i].description.includes('read')) { %>
@@ -74,7 +74,7 @@
       </ul>
     </div>
     <div class="food-container">
-      <h6>FOOD</h6>
+      <h6>----FOOD----</h6>
       <ul id="food">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('eat')) { %>
@@ -87,7 +87,7 @@
       </ul>
     </div>
     <div class="shop-container">
-      <h6>SHOPPING</h6>
+      <h6>----SHOPPING----</h6>
       <ul id="shop">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('buy')) { %>

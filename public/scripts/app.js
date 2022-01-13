@@ -71,6 +71,7 @@ $(document).ready(() => {
 
       return;
     }
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
     modal.style.display = "block";
     const targetText = event.target.innerHTML;
     const newString = targetText.split(" ");
@@ -86,10 +87,11 @@ $(document).ready(() => {
         console.log("Here's your movie!",data)
         $(".modal-content").append(`
         <img src="${data.Poster}">
-        <p>Title: ${data.Title}<br><br>
+        <p class="api-info">Title: ${data.Title}<br><br>
         ${data.Actors}<br><br>
         ${data.Plot}<br><br>
         ${data.Genre}<br><br>
+        imDB Rating: ${data.imdbRating}
         </p>`)
       },
       error: function (err) {
@@ -109,9 +111,9 @@ $(document).ready(() => {
         console.log("Here's your book!",bookInfo)
         $(".modal-content").append(`
         <img src="${bookInfo.imageLinks.smallThumbnail}">
-        <p>${bookInfo.description}<br><br>
+        <p class="api-info">${bookInfo.title}<br><br>
         Written by: ${bookInfo.authors[0]}<br><br>
-        
+        ${bookInfo.description}
         </p>`)
       },
       error: function (err) {
@@ -123,22 +125,19 @@ $(document).ready(() => {
   if(event.target.innerText.includes("eat")) {
     const food = newString.slice(18, 21)
     $.ajax({
-      url: `https://api.tomtom.com/search/2/categorySearch/${food}.json?key=RGNyvI7n28tyYQo9QiCpMDt43xnuKSH2&countrySet=CAN`,
+      url: `https://api.spoonacular.com/recipes/complexSearch?query=${food}&apiKey=a19f30d1480c490d9c94dd375b9dbd96`,
       method: "GET",
       dataType: "json",
       success: function (data) {
-        const foodInfo = data;
-        const lat = foodInfo.results[1].position["lat"];
-        const long = foodInfo.results[1].position["lon"];
+        const foodInfo = data.results[randomNumber];
         console.log("Here's your food!",foodInfo)
-       $.ajax({
-         url: `https://api.tomtom.com/map/1/staticimage?key=RGNyvI7n28tyYQo9QiCpMDt43xnuKSH2&zoom=9&center=${long}${lat},46.112341&format=jpg&layer=basic&style=main`,
-         method: "GET",
-         dataType: "json",
-         success: function (map) {
-          console.log("hello",map)
-         }
-       })
+
+        $(".modal-content").append(`
+        <img src="${foodInfo.image}">
+        <p class="api-info">${foodInfo.title}<br><br>
+        Here's a picture of what you want! SORRY, I'm a computer, I can't cook for you!<br><br>
+        
+        </p>`)
       },
       error: function (err) {
         console.log("aww",err);

@@ -115,27 +115,28 @@ $(document).ready(() => {
     })
   }
 //-------------SHOPPING--------------
-  // if(event.target.innerText.includes("buy")) {
-  //   const book = newString.slice(15, 18)
-  //   $.ajax({
-  //     url: `https://www.googleapis.com/books/v1/volumes?q=${book}`,
-  //     method: "GET",
-  //     dataType: "json",
-  //     success: function (data) {
-  //       const bookInfo = data.items["0"].volumeInfo;
-  //       console.log("Here's your book!",bookInfo)
-  //       $(".modal-content").append(`
-  //       <img src="${bookInfo.imageLinks.smallThumbnail}">
-  //       <p>${bookInfo.description}<br><br>
-  //       Written by: ${bookInfo.authors[0]}<br><br>
+  if(event.target.innerText.includes("buy")) {
+    const item = newString.slice(17, 20)
+    console.log(item)
+    $.ajax({
+      url: `http://api.serpstack.com/search?access_key=cda65bbac4a0a2b6d59bbe51fa1b7bb9&query=${item}`,
+      method: "GET",
+      dataType: "json",
+      success: function (data) {
+        const itemInfo = data.organic_results[randomNumber];
+        console.log("Here's your product!",itemInfo)
+        $(".modal-content").append(`
         
-  //       </p>`)
-  //     },
-  //     error: function (err) {
-  //       console.log("aww",err);
-  //     }
-  //   })
-  // }
+        <p>${itemInfo.title}<br><br>
+        buy at: ${itemInfo.url} <br><br>
+        
+        </p>`)
+      },
+      error: function (err) {
+        console.log("aww",err);
+      }
+    })
+  }
 
     
   });

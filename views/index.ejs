@@ -77,7 +77,7 @@
       <h6>----FOOD----</h6>
       <ul id="food">
         <% for(let i = 0; i < listings.length; i++) { %>
-          <% if(listings[i].description.includes('eat')) { %>
+          <% if(listings[i].description.includes('eat' || 'drink')) { %>
             <li class="list-item" draggable="true">
               <%= listings[i].description %>
               <i class="fa-solid fa-circle-minus" class="delete"></i>

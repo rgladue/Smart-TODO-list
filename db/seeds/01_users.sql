@@ -3,7 +3,8 @@ INSERT INTO users (name, email, password)
 VALUES ('Alice', 'alice.in@chains.com', 'cooper'),
 ('Robert', 'rob@bob.com', 'robrob'),
 ('James Bond', 'James@bond.ca', 'goldeneye'),
-('Geralt of Rivia', 'geralt@witcher.com', 'yennefer');
+('Geralt of Rivia', 'geralt@witcher.com', 'yennefer'),
+('Super Mario', 'iluvpeach@mario.ca', 'luigi');
 
 
 INSERT INTO tasks (user_id, description, category)
@@ -22,4 +23,7 @@ VALUES (1, 'I want to eat burgers', 'food'),
 (4, 'I want to eat steak', 'food'), 
 (4, 'I want to buy a sword', 'shopping'),
 (4, 'I want to watch Yennefers body', 'movies'),
-(4, 'I want to read Harry Potter', 'books');
+(4, 'I want to read Harry Potter', 'books'),
+(5, 'I want to eat Peaches', 'food'),
+(5, 'I want to eat mushrooms', 'food'),
+(5, 'I want to buy peaches', 'shopping');

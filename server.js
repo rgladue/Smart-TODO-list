@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
@@ -70,12 +71,13 @@ app.get("/", (req, res) => {
   if(!req.session.user_id) {
     res.render("index_logged_out");
   }
-  
-  db.query(`SELECT name, description FROM users
-  JOIN tasks ON users.id = user_id`)
+  const user_id = req.session.user_id;
+  db.query(`SELECT name, user_id, description FROM users
+  JOIN tasks ON users.id = user_id
+  WHERE user_id = $1`, [user_id])
     .then(data => {
-
-      const temp = {listings: data.rows, user: data.rows[7].name};
+     
+      const temp = {listings: data.rows, user: data.rows[0].name};
       
       res.render("index", temp);
     })
@@ -87,7 +89,8 @@ app.get("/", (req, res) => {
 });
 //--------------
 app.post("/", (req, res) => {
-  const user_id = req.session.user_id;
+  console.log(req.session.user_id);
+ const user_id = req.session.user_id;
  const newTodo = req.body.text;
  db.query(`INSERT INTO tasks (user_id, description)
  VALUES($1, $2);`, [user_id, newTodo]) 
@@ -114,8 +117,8 @@ app.post('/login', (req, res) => {
  JOIN tasks ON users.id = user_id
  WHERE email = $1`, [email])
  .then(data => {
-   console.log(data.rows);
-    req.session.user_id = data.rows[0].id;
+
+    req.session.user_id = data.rows[0].user_id;
     const temp = {user: data.rows[0].name, listings: data.rows}
     res.render("index", temp);
  })
@@ -136,9 +139,9 @@ app.post("/register", (req, res) => {
     password: req.body.password
   };
   db.query(`
-  INSERT INTO users (name, email,password)
-  VALUES ('${user.name}', '${user.email}', '${user.password}')
-  `)
+  INSERT INTO users (name, email, password)
+  VALUES ('$1', '$2', '$3')
+  `, [user.name, user.email, user.password])
   .then(data => {
     res.redirect("/login");
   })

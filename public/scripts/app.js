@@ -12,38 +12,6 @@ $(document).ready(() => {
     location.href = "/login";
   })
 
-  
-  //Adding list items from the input field
-  $(".input-form").on("submit",(event) => {
-    event.preventDefault();
-    const $movieList = $("#movies");
-    const $bookList = $("#books");
-    const $foodList = $("#food");
-    const $shopList = $("#shop");
-    
-    const $listItem = $(".text-field").val();
-    
-    if($listItem.includes("watch")) {
-      $movieList.prepend(`<li class="list-item">${$listItem}<i class="fa-solid fa-circle-minus" id="delete"></i></li>`);
-    }
-    if($listItem.includes("read")) {
-      $bookList.prepend(`<li class="list-item">${$listItem}<i class="fa-solid fa-circle-minus" id="delete"></i></li>`);
-    }
-    if ($listItem.includes("eat")) {
-        $foodList.prepend(`<li class="list-item">${$listItem}<i class="fa-solid fa-circle-minus" id="delete"></i></li>`);
-    }
-    if ($listItem.includes("buy")) {
-        $shopList.prepend(`<li class="list-item">${$listItem}<i class="fa-solid fa-circle-minus" id="delete"></i></li>`);
-    }
-    $(".text-field").val("");
-      
-    
-  });
-  
-  
-  
-  
-
 
   //footer element redirect links
   $("#tiens-git").on("click", function() {
@@ -91,7 +59,8 @@ $(document).ready(() => {
         ${data.Actors}<br><br>
         ${data.Plot}<br><br>
         ${data.Genre}<br><br>
-        imDB Rating: ${data.imdbRating}
+        imDB Rating: ${data.imdbRating}<br><br>
+        Release Date: ${data.Released}
         </p>`)
       },
       error: function (err) {
@@ -113,7 +82,8 @@ $(document).ready(() => {
         <img src="${bookInfo.imageLinks.smallThumbnail}">
         <p class="api-info">${bookInfo.title}<br><br>
         Written by: ${bookInfo.authors[0]}<br><br>
-        ${bookInfo.description}
+        ${bookInfo.description}<br><br>
+        Want to Read?: <a href="${bookInfo.previewLink}">Read Now!</a>
         </p>`)
       },
       error: function (err) {

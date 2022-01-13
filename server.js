@@ -8,9 +8,9 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-
-
 const cookieSession = require("cookie-session");
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
@@ -65,6 +65,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+
 app.get("/", (req, res) => {
   if(!req.session.user_id) {
     res.render("index_logged_out");
@@ -84,6 +85,20 @@ app.get("/", (req, res) => {
       .json({ error: err.message });
     });
 });
+//--------------
+app.post("/", (req, res) => {
+  const user_id = req.session.user_id;
+ const newTodo = req.body.text;
+ db.query(`INSERT INTO tasks (user_id, description)
+ VALUES($1, $2);`, [user_id, newTodo]) 
+ .then(data => {
+
+   res.redirect("/")
+ })
+ .catch(err => {
+   console.log(err.message);
+ })
+})
 
 //--------------
 app.get("/login", (req, res) => {
@@ -95,11 +110,14 @@ app.get("/login", (req, res) => {
 //--------------
 app.post('/login', (req, res) => {
  const email = req.body.email;
- db.query(`SELECT * FROM users WHERE email = $1`, [email])
+ db.query(`SELECT *, user_id, description FROM users 
+ JOIN tasks ON users.id = user_id
+ WHERE email = $1`, [email])
  .then(data => {
+   console.log(data.rows);
     req.session.user_id = data.rows[0].id;
-    console.log(data.rows[0].name);
-    res.redirect("/");
+    const temp = {user: data.rows[0].name, listings: data.rows}
+    res.render("index", temp);
  })
 });
 //---------------
@@ -122,7 +140,7 @@ app.post("/register", (req, res) => {
   VALUES ('${user.name}', '${user.email}', '${user.password}')
   `)
   .then(data => {
-    res.redirect("/");
+    res.redirect("/login");
   })
 })
 //--------------
@@ -138,7 +156,7 @@ app.post("/logout", (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`SmartListr listening on port ${PORT}`);
 });
 
 

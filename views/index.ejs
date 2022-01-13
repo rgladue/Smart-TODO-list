@@ -23,8 +23,8 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    
-    
+
+
   </div>
 
 </div>
@@ -36,7 +36,7 @@
     <input type="submit" value="Logout">
   </form>
 </nav>
-  
+
   <!--new todo list submission form-->
   <form class="input-form" method="POST" action="/">
     <p>New To-Do:</p>
@@ -48,7 +48,7 @@
   <!--main content with listing categories-->
   <div class="list-container">
     <div class="movie-container">
-      <h6>----MOVIES----</h6>
+      <h3>----MOVIES----</h3>
       <ul id="movies">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('watch')) { %>
@@ -61,7 +61,7 @@
       </ul>
     </div>
     <div class="book-container">
-      <h6>----BOOKS----</h6>
+      <h3>----BOOKS----</h3>
       <ul id="books">
         <% for(let i = 0; i < listings.length; i++) { %>
         <% if(listings[i].description.includes('read')) { %>
@@ -74,7 +74,7 @@
       </ul>
     </div>
     <div class="food-container">
-      <h6>----FOOD----</h6>
+      <h3>----FOOD----</h3>
       <ul id="food">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('eat' || 'drink')) { %>
@@ -87,7 +87,7 @@
       </ul>
     </div>
     <div class="shop-container">
-      <h6>----SHOPPING----</h6>
+      <h3>----SHOPPING----</h3>
       <ul id="shop">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('buy')) { %>
@@ -102,7 +102,7 @@
   </div>
   <!--footer content -->
   <footer class="footer">
-    <p>T.Dihn <i class="fa-brands fa-github" id="tiens-git"></i></p>
+    <p>T.Dinh <i class="fa-brands fa-github" id="tiens-git"></i></p>
     <p id="copyright">Crafted by 2 Guys &copy;2022</p>
     <p>R.Gladue <i class="fa-brands fa-github" id="robs-git"></i> <i class="fa-brands fa-twitter" id="robs-twit"></i></p>
   </footer>

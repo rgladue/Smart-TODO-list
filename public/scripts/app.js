@@ -26,14 +26,14 @@ $(document).ready(() => {
     location.href = "https://twitter.com/RGAlexJR";
   })
 
-  
-  
+
+
   //
   //API AJAX CALLS********************************
   //
   //modal popup/close functions
   const modal = document.getElementById("myModal");
-  
+
   $(".list-item").on("click", (event) => {
     if (event.target.className === "fa-solid fa-circle-minus") {
 
@@ -44,7 +44,7 @@ $(document).ready(() => {
     const targetText = event.target.innerHTML;
     const newString = targetText.split(" ");
     const movie = newString.slice(14, 17);
-    
+
     //------------MOVIES/TV-----------
     if(event.target.innerText.includes("watch")) {
     $.ajax({
@@ -106,7 +106,7 @@ $(document).ready(() => {
         <img src="${foodInfo.image}">
         <p class="api-info">${foodInfo.title}<br><br>
         Here's a picture of what you want! SORRY, I'm a computer, I can't cook for you!<br><br>
-        
+
         </p>`)
       },
       error: function (err) {
@@ -124,12 +124,12 @@ $(document).ready(() => {
       dataType: "json",
       success: function (data) {
         const itemInfo = data.organic_results[randomNumber];
+        const image = data.inline_images[randomNumber];
         console.log("Here's your product!",itemInfo)
         $(".modal-content").append(`
-        
+
         <p>${itemInfo.title}<br><br>
         buy at: ${itemInfo.url} <br><br>
-        
         </p>`)
       },
       error: function (err) {
@@ -138,14 +138,14 @@ $(document).ready(() => {
     })
   }
 
-    
+
   });
-  
+
   $(".close").on("click", () => {
     $(".modal-content").empty("")
     modal.style.display = "none";
   });
-  
+
   window.onclick = (event) => {
     if (event.target == modal) {
       $(".modal-content").empty("")
@@ -162,7 +162,7 @@ $(document).ready(() => {
     }
   })
 
-  //Drag and Drop 
+  //Drag and Drop
   $(".list-item").draggable();
 
   $("ul").droppable({
@@ -173,9 +173,9 @@ $(document).ready(() => {
   });
 
 
-  
 
 
 
 
-}); 
+
+});

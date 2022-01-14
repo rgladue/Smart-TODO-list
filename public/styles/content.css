@@ -1,0 +1,102 @@
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-container h3 {
+  text-align: center;
+  cursor: pointer;
+  padding: 20px 0px;
+  margin: 0px;
+}
+
+
+.list-container .movies-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 20%;
+  height: 65%;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 10px;
+}
+
+.list-container .foods-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 20%;
+  height: 65%;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 10px;
+}
+
+.list-container .books-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 20%;
+  height: 65%;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 10px;
+}
+
+.list-container .products-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 20%;
+  height: 65%;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 10px;
+}
+
+.list-container .dumbledore {
+  width: 22%;
+  border: 2px solid rgba(46, 31, 39, 0.7);
+  margin: 10px;
+}
+
+.list-container .dumbledore li {
+  padding: 5px 10px;
+  margin: 5px 0px;
+  list-style: none;
+  color: #940d0d;
+  transition: 0.3s;
+}
+
+
+.list-container .dumbledore li i:hover {
+  color: #dd7230;
+  cursor: pointer;
+}
+
+.list-container .dumbledore li:hover {
+  transform: translateY(-3px) translateX(-3px);
+}
+
+.list-container .reminder-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-container .reminder-footer {
+  display: none;
+}
+
+.list-container .select-list {
+  width: 60%;
+  transition: 0.4s;
+}
+
+.list-container .select-list .reminder-header {
+  padding: 15px;
+  font-size: 25px;
+}
+
+.list-container .select-list .reminder-footer {
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.list-container .select-list .reminder-footer .reminder-footer-image {
+  width: 75px;
+  margin-left: 15px;
+}

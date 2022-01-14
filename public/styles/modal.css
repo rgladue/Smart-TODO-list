@@ -1,0 +1,50 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-container .modal-box {
+  border: 3px solid #323232;
+  width: 70vw;
+  padding: 15px 30px;
+  background: #f4f4f4;
+  border-radius: 15px;
+  background-color: #f4f4f4;
+}
+
+.modal-container .modal-box i:hover {
+  transition: 0.3s;
+  transform: rotate(90deg);
+  color: red;
+  cursor: pointer;
+}
+
+.modal-container .modal-box .title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-container .modal-box .title-container a {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  color: #854d27;
+  text-decoration: none;
+}
+
+.modal-container img {
+  width: 30%;
+  height: fit-content;
+  float: left;
+  padding: 0px 10px 10px 0px;
+}
+
+.modal-container .modal-description {
+  word-break: break-word;
+}

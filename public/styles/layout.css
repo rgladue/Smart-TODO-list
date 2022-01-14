@@ -1,0 +1,10 @@
+body {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  background: #a3d0db;
+  background: linear-gradient(150deg, #97b3f0 0%, #d7c383 20%, #eec47f 34%, #f09a9a 59%, #dba3a3 74%, #a3dbd7 100%);
+}
+
+body h1 {
+  color: #f4f4f4;
+}

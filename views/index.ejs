@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Smart ToDo List</title>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/content.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/modal.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/queries.css" type="text/css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Lobster&family=Major+Mono+Display&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300&family=Wire+One&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/events.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="user-welcome">Welcome <%= username %></div>
+      <span class="user-input-toggle">Smart TODO List</span>
+      <% if (!username) { %>
+        <form class="nav-top-right" action="/login" method="POST">
+          <div class="form-group user-welcome">
+            <label for="username">Username:</label>
+            <input class="user-welcome" type="text" name="username" placeholder="Enter Username">
+          </div>
+          <button class='identify' type="submit">Login</button>
+        </form>
+      <% } else { %>
+        <div class="nav-top-right">
+          <form action="/logout" method="POST">
+            <button class='identify' type="submit">Logout</button>
+          </form>
+        </div>
+      <% } %>
+    </nav>
+    <% if (username) { %>
+      <header class="header-toggle">
+        <div>
+          <form id="new-item" class="input-form" action='/reminders' method="POST">
+            <p>New To-Do:</p>
+            <input class="list-input-field" type="text" name="reminder" placeholder="add a new reminder">
+            <input type="submit" id="add-btn" value="Sort">
+          </form>
+        </div>
+
+        <div class="font-awesome-icons">
+          <i class="fas fa-film"></i>
+          <i class="fas fa-utensils"></i>
+          <i class="fas fa-solid fa-book"></i>
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </header>
+
+      <br>
+
+      <div class="list-container">
+        <div class="movies-container dumbledore">
+          <h3 class='movies-top'>MOVIES</h3>
+          <ul class="movies lists"></ul>
+        </div>
+        <div class="foods-container dumbledore">
+          <h3 class='foods-top'>FOOD</h3>
+          <ul class="foods lists"></ul>
+        </div>
+        <div class="books-container dumbledore">
+          <h3 class='books-top'>BOOKS</h3>
+          <ul class="books lists"></ul>
+        </div>
+        <div class="products-container dumbledore">
+          <h3 class='products-top'>SHOPPING</h3>
+          <ul class="products lists"></ul>
+        </div>
+      </div>
+    <% } %>
+
+    <!--footer content -->
+  <footer class="footer">
+    <p>T.Dinh <a class="fab fa-github" href="https://github.com/quangtienftu49" target="_blank"></a> <a class="fab fa-linkedin-in" href="https://www.linkedin.com/in/tienmax/" target="_blank"> </a></p>
+    <p id="copyright">made by humans &copy;2022</p>
+    <p>R.Gladue <a class="fab fa-github" href="https://github.com/rgladue" target="_blank"></a> <a class="fab fa-linkedin-in" href="" target="_blank"></a></p>
+  </footer>
+  </body>
+
+  <div class="modal-container">
+    <div class="modal-box">
+      <div class="title-container">
+        <a class="modal-title"></a>
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="modal-content-container">
+        <img class="modal-image" src="" alt="">
+        <p class="modal-description"></p>
+        <br>
+        <a class="modal-url" href="" target="_blank">Read more...</a>
+        <br>
+        <p class="modal-time"></p>
+      </div>
+    </div>
+  </div>
+</html>

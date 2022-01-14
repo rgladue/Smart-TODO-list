@@ -1,0 +1,11 @@
+@media screen and (max-width: 768px) {
+  .list-container .dumbledore {
+    width: 45%;
+  }
+  .list-container .dumbledore.select-list {
+    width: 80%;
+  }
+  .modal-container img {
+    width: 60%;
+  }
+}

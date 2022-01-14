@@ -35,7 +35,7 @@ $(document).ready(() => {
   const modal = document.getElementById("myModal");
 
   $(".list-item").on("click", (event) => {
-    if (event.target.className === "fa-solid fa-circle-minus") {
+    if (event.target.className === "fa-solid fa-trash-can") {
 
       return;
     }
@@ -164,7 +164,7 @@ $(document).ready(() => {
   $("i").on("click", (event) => {
    event.preventDefault();
     const target = event.target.parentNode;
-    if(event.target.outerHTML === "<i class=\"fa-solid fa-circle-minus\"></i>") {
+    if(event.target.outerHTML === "<i class=\"fa-solid fa-trash-can\"></i>") {
    target.remove();
     }
   })

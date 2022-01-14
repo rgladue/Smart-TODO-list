@@ -55,6 +55,7 @@ $(document).ready(() => {
         console.log("Here's your movie!",data)
         $(".modal-content").append(`
         <img src="${data.Poster}">
+        <br><i class="fa-solid fa-film"></i><br>
         <p class="api-info">Title: ${data.Title}<br><br>
         ${data.Actors}<br><br>
         ${data.Plot}<br><br>
@@ -80,6 +81,7 @@ $(document).ready(() => {
         console.log("Here's your book!",bookInfo)
         $(".modal-content").append(`
         <img src="${bookInfo.imageLinks.smallThumbnail}">
+        <br><i class="fa-solid fa-book"></i><br>
         <p class="api-info">${bookInfo.title}<br><br>
         Written by: ${bookInfo.authors[0]}<br><br>
         ${bookInfo.description}<br><br>
@@ -104,6 +106,7 @@ $(document).ready(() => {
 
         $(".modal-content").append(`
         <img src="${foodInfo.image}">
+        <br><i class="fa-solid fa-utensils"></i><br>
         <p class="api-info">${foodInfo.title}<br><br>
         Here's a picture of what you want! SORRY, I'm a computer, I can't cook for you!<br><br>
         
@@ -126,9 +129,9 @@ $(document).ready(() => {
         const itemInfo = data.organic_results[randomNumber];
         console.log("Here's your product!",itemInfo)
         $(".modal-content").append(`
-        
+        <i class="fa-solid fa-cart-shopping"></i><br>
         <p>${itemInfo.title}<br><br>
-        buy at: ${itemInfo.url} <br><br>
+        Ready to Buy?: <a href='${itemInfo.url}'>Buy NOW!!</a> <br><br>
         
         </p>`)
       },

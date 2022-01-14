@@ -81,9 +81,11 @@ body {
 
 .text-field {
   width: 400px;
-  border-radius: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   background: none;
-  border: 1px solid black;
+  
 }
 
 .list-container {

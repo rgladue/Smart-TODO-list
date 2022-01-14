@@ -23,20 +23,20 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    
-    
+
+
   </div>
 
 </div>
 <!--navbar-->
 <nav class="navbar">
   <p style="color: rgb(77, 77, 77); width: 140px;"><i class="fa-solid fa-user"></i> Hello, <%= user %> </p>
-  <h1 id="title">SmartListr</h1>
+  <h1 id="title">Smart List</h1>
   <form class="logout" action="/logout" method="post">
     <input type="submit" value="Logout">
   </form>
 </nav>
-  
+
   <!--new todo list submission form-->
   <form class="input-form" method="POST" action="/">
     <p>New To-Do:</p>
@@ -49,6 +49,7 @@
   <div class="list-container">
     <div class="movie-container">
       <h3>---- <i class="fa-solid fa-film"></i> ----</h3>
+      <h3>----MOVIES----</h3>
       <ul id="movies">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('watch')) { %>
@@ -62,6 +63,7 @@
     </div>
     <div class="book-container">
       <h3>---- <i class="fa-solid fa-book"></i> ----</h3>
+      <h3>----BOOKS----</h3>
       <ul id="books">
         <% for(let i = 0; i < listings.length; i++) { %>
         <% if(listings[i].description.includes('read')) { %>
@@ -75,6 +77,7 @@
     </div>
     <div class="food-container">
       <h3>---- <i class="fa-solid fa-utensils"></i> ----</h3>
+      <h3>----FOOD----</h3>
       <ul id="food">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('eat' || 'drink')) { %>
@@ -88,6 +91,7 @@
     </div>
     <div class="shop-container">
       <h3>---- <i class="fa-solid fa-cart-shopping"></i> ----</h3>
+      <h3>----SHOPPING----</h3>
       <ul id="shop">
         <% for(let i = 0; i < listings.length; i++) { %>
           <% if(listings[i].description.includes('buy')) { %>
@@ -102,7 +106,7 @@
   </div>
   <!--footer content -->
   <footer class="footer">
-    <p>T.Dihn <i class="fa-brands fa-github" id="tiens-git"></i></p>
+    <p>T.Dinh <i class="fa-brands fa-github" id="tiens-git"></i></p>
     <p id="copyright">Crafted by 2 Guys &copy;2022</p>
     <p>R.Gladue <i class="fa-brands fa-github" id="robs-git"></i> <i class="fa-brands fa-twitter" id="robs-twit"></i></p>
   </footer>
